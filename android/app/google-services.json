@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "360942418826",
+    "firebase_url": "https://er-7a8fe.firebaseio.com",
+    "project_id": "er-7a8fe",
+    "storage_bucket": "er-7a8fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360942418826:android:87ebb2785f6a4bbb60a673",
+        "android_client_info": {
+          "package_name": "com.arikaton.pharmacy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360942418826-0it7jdra29pcngprn088mrfrdljm56s9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWRgP4i2ukZg0BPeCJ9L243k4uX-NLo5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "360942418826-0it7jdra29pcngprn088mrfrdljm56s9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
