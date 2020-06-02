@@ -110,6 +110,7 @@ class _ChooseRecipeState extends State<ChooseRecipe>{
             recipeID: widget.recipeData[0],
             onTap: () => Navigator.of(context).pushReplacementNamed('/BuyGoods', arguments: [widget.recipeData[0], widget.recipeData[1]])
         ));
+        print("Test");
       }
   }
 
