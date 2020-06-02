@@ -61,8 +61,8 @@ class TabletsStatementState extends State<TabletsStatement>{
           title: Text("Шаг 3: Утверждение времени приёма"),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.help_outline),
-              onPressed: () => Utils.launchUrl(References.tabletsPage),
+              icon: Icon(Icons.info_outline),
+              onPressed: () => Utils.showHelpInfo(context, References.tabletsPage),
             )
           ],
       ),

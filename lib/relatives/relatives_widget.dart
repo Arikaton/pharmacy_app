@@ -11,8 +11,8 @@ class RelativesWidget extends StatelessWidget{
         title: Text("Мои близкие"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () => Utils.launchUrl(References.myRelativesPages),
+            icon: Icon(Icons.info_outline),
+            onPressed: () => Utils.showHelpInfo(context, References.myRelativesPages),
           )
         ],
       ),

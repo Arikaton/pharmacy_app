@@ -169,8 +169,8 @@ class MyProfileState extends State<MyProfile>{
         title: Text('Мой профиль'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () => Utils.launchUrl(References.profilePage),
+            icon: Icon(Icons.info_outline),
+            onPressed: () => Utils.showHelpInfo(context, References.profilePage),
           ),
           FlatButton(
             child: Text('Выйти', style: TextStyle(color: Colors.white),),

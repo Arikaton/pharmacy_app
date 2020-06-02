@@ -196,8 +196,8 @@ class MessagesListWidget extends StatelessWidget{
         title: Text("Сообщения"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () => Utils.launchUrl(References.messagesPage),
+            icon: Icon(Icons.info_outline),
+            onPressed: () => Utils.showHelpInfo(context, References.messagesPage),
           )
         ],
       ),

@@ -33,8 +33,8 @@ class RecipeWidgetState extends State<RecipeWidget>{
             leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil("/HomeLogged", (Route<dynamic> route) => false)),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.help_outline),
-                onPressed: () => Utils.launchUrl(References.recipePage),
+                icon: Icon(Icons.info_outline),
+                onPressed: () => Utils.showHelpInfo(context, References.recipePage),
               )
             ],
           /*actions: <Widget>[Padding(

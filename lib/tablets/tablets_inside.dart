@@ -30,8 +30,8 @@ class TabletsInsideState extends State<TabletsInside>{
         title: Text(widget.data["RecipeName"]),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () => Utils.launchUrl(References.tabletsPage),
+            icon: Icon(Icons.info_outline),
+            onPressed: () => Utils.showHelpInfo(context, References.tabletsPage),
           ),
           PopupMenuButton<int>(
             onSelected: (value) async {

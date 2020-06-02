@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:badges/badges.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:pharmacy_app/recipes/recipe_card_widget.dart';
@@ -10,6 +11,7 @@ import 'package:pharmacy_app/utils/server_wrapper.dart';
 import 'dart:math';
 import 'package:pharmacy_app/profile_widget.dart';
 import 'package:pharmacy_app/tablets/tablets_widget.dart';
+import 'package:pharmacy_app/utils/shared_preferences_wrapper.dart';
 import 'package:pharmacy_app/utils/utils.dart';
 import 'package:pharmacy_app/warning_ESIA.dart';
 import 'message_card_widget.dart';
@@ -28,6 +30,7 @@ class HomeLogged extends StatefulWidget{
 
 class _HomeLoggedState extends State<HomeLogged> with WidgetsBindingObserver {
   static bool warningWasShowed = false;
+  static bool helpMessageWasShowed = false;
   int _selectedIndex;
 
   List<String> _titleTexts = ['Главная', "Таблеточница", "Профиль"];
@@ -48,6 +51,44 @@ class _HomeLoggedState extends State<HomeLogged> with WidgetsBindingObserver {
     _selectedIndex = widget.firstTab ?? 0;
     _homeWidgets = [HomePageWidget(), TabletsMain(), MainProfile()];
     showWarningESIA();
+    SharedPreferencesWrap.getHelpState().then((state) { if (state = true) showHelpESIAMessage(); } );
+  }
+
+  void showHelpESIAMessage(){
+    AlertDialog alertDialog = AlertDialog(
+      title: Text("Внимание!", style: TextStyle(fontWeight: FontWeight.bold)),
+      content: Wrap(
+
+        children: <Widget>[
+          Text("Вновь выписанные рецепты становятся доступны"),
+          Text("В течение 10-15 минут.\n", style: TextStyle(fontWeight: FontWeight.bold)),
+          Text("Если по истечении этого времени вы не увидели нужный рецепт на главном экране, нажмите на кнопку "),
+          Icon(Icons.info, color: Colors.blue,),
+          Text(" в правом верхнем углу приложенияя, затем выберите строку "),
+          Text('"Ожидаемый рецепт не получен".\n', style: TextStyle(fontWeight: FontWeight.bold),),
+          Text("Вопрос будет решён в кратчайшие сроки")
+        ],
+      ),
+      actions: <Widget>[
+        FlatButton(
+          child: Text("Закрыть и больше не напоминать"),
+          onPressed: () async {
+            await SharedPreferencesWrap.setHelpState(false);
+            Navigator.pop(context);
+          },
+        ),
+        FlatButton(
+          child: Text("Закрыть"),
+          color: Colors.blue,
+          onPressed: (){
+            helpMessageWasShowed = true;
+            Navigator.of(context).pop();
+          }
+        )
+      ],
+    );
+    if (!helpMessageWasShowed)
+      showDialog(context: context, child: alertDialog);
   }
 
   void showWarningESIA() async {
@@ -199,8 +240,8 @@ class _HomeLoggedState extends State<HomeLogged> with WidgetsBindingObserver {
           title: Text(_titleTexts[_selectedIndex]),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.help_outline),
-              onPressed: () => Utils.launchUrl(References.mainPage),
+              icon: Icon(Icons.info_outline),
+              onPressed: () => Utils.showHelpInfo(context, References.mainPage),
             )
           ],
       ),

@@ -10,8 +10,8 @@ class TabletsNotRecipe extends StatelessWidget{
           title: Text("Создание курса приёма"),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.help_outline),
-              onPressed: () => Utils.launchUrl(References.tabletsPage),
+              icon: Icon(Icons.info_outline),
+              onPressed: () => Utils.showHelpInfo(context, References.tabletsPage),
             )
           ],
       ),

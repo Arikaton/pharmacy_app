@@ -19,8 +19,8 @@ class TabletsChooseRecipeState extends State<TabletsChoseRecipe>{
           title: Text("Шаг 1: Выбор рецепта"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () => Utils.launchUrl(References.tabletsPage),
+            icon: Icon(Icons.info_outline),
+            onPressed: () => Utils.showHelpInfo(context, References.tabletsPage),
           )
         ],
       ),

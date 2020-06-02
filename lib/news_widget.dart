@@ -25,8 +25,8 @@ class NewsWidget extends StatelessWidget{
           ),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.help_outline),
-              onPressed: () => Utils.launchUrl(References.newsPage),
+              icon: Icon(Icons.info_outline),
+              onPressed: () => Utils.showHelpInfo(context, References.newsPage),
             )
           ],
         ),

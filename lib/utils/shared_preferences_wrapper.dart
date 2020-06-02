@@ -147,4 +147,14 @@ class SharedPreferencesWrap{
     final prefs = await SharedPreferences.getInstance();
     prefs.setString("pincode", pin);
   }
+
+  static Future<bool> getHelpState() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool("helpState") ?? false;
+  }
+
+  static Future<bool> setHelpState(bool state) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool("helpState", state);
+  }
 }

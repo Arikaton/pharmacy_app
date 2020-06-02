@@ -66,6 +66,7 @@ class _WebViewWidgetState extends State<WebViewWidget>{
       _showSnackBar(context);
     } else {
       if (widget.url.length == 1){
+        await SharedPreferencesWrap.setHelpState(true);
         Navigator.of(context).pushNamedAndRemoveUntil("/HomeLogged", (route) => false);
       } else {
         Navigator.of(context).pushNamedAndRemoveUntil("/Relatives", (route) => route.isFirst, arguments: "");

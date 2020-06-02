@@ -23,8 +23,8 @@ class RelativesInside extends StatelessWidget{
           title: Text('Профиль - близкие'),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.help_outline),
-              onPressed: () => Utils.launchUrl(References.myRelativesPages),
+              icon: Icon(Icons.info_outline),
+              onPressed: () => Utils.showHelpInfo(context, References.myRelativesPages),
             ),
             IconButton(
               icon: Icon(Icons.delete),
