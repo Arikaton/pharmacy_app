@@ -44,23 +44,21 @@ class Utils{
     showDialog(
         context: context,
         child: AlertDialog(
-          title: Text("Помощь"),
           content: Wrap(
             children: <Widget>[
               Container(
                 width: double.infinity,
                 child: FlatButton(
-                  child: Text("Ожидаемый рецепт не получен"),
+                  child: Text("Ожидаемый рецепт не получен", textAlign: TextAlign.center,),
                   onPressed: () { Navigator.pop(context); sendMessageDialog(context); },
-                  color: Colors.blue,
                 ),
               ),
+              Divider(color: Colors.black54,),
               Container(
                 width: double.infinity,
                 child: FlatButton(
                   child: Text("Справка по разделу"),
                   onPressed: () => Utils.launchUrl(url),
-                  color: Colors.blue,
                 ),
               )
             ],
@@ -90,27 +88,30 @@ class MyDialog extends StatefulWidget{
 
 class MyDialogState extends State<MyDialog>{
   var formKey = GlobalKey<FormState>();
-  String message;
+  String message = "";
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text("Ожидаемый рецепт не получен"),
-      content: Wrap(
-        children: <Widget>[
-          Text("Сообщить в техническую поддержку информацию, что рецепт, выписанный Вам в медицинском учреждении не доставлен в приложение.\n"),
-          Text("Укажите, пожалуйста, ниже в текстовом поле в каком мед. учреждении был выписан рецепт и специальность врача.\n", style: TextStyle(fontSize: 11),),
-          Form(
-            key: formKey,
-            child: TextFormField(
-              maxLines: 3,
-              onSaved: (value) => message = value,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                )
-            ),
-          )
-        ],
+      content: SizedBox(
+        height: 300,
+        child: ListView(
+          children: <Widget>[
+            Text("Сообщить в техническую поддержку информацию, что рецепт, выписанный Вам в медицинском учреждении не доставлен в приложение.\n"),
+            Text("Укажите, пожалуйста, ниже в текстовом поле в каком мед. учреждении был выписан рецепт и специальность врача.\n", style: TextStyle(fontSize: 11),),
+            Form(
+              key: formKey,
+              child: TextFormField(
+                maxLines: 3,
+                onSaved: (value) => message = value,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                  )
+              ),
+            )
+          ],
+        ),
       ),
       actions: <Widget>[
         FlatButton(
@@ -128,6 +129,8 @@ class MyDialogState extends State<MyDialog>{
 
   void sendMessage() async {
     formKey.currentState.save();
+    if (message == "")
+      message = "Ожидаемый рецепт не получен";
     Map<String, String> mData = {"ParentID": "", "Header": "Ожидаемый рецепт не получен", "Body": message};
     print(mData);
     await ServerMessages.sendMessage(mData);

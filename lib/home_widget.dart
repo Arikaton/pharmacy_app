@@ -51,7 +51,7 @@ class _HomeLoggedState extends State<HomeLogged> with WidgetsBindingObserver {
     _selectedIndex = widget.firstTab ?? 0;
     _homeWidgets = [HomePageWidget(), TabletsMain(), MainProfile()];
     showWarningESIA();
-    SharedPreferencesWrap.getHelpState().then((state) { if (state = true) showHelpESIAMessage(); } );
+    SharedPreferencesWrap.getHelpState().then((state) { if (state) showHelpESIAMessage(); } );
   }
 
   void showHelpESIAMessage(){
@@ -74,6 +74,7 @@ class _HomeLoggedState extends State<HomeLogged> with WidgetsBindingObserver {
           child: Text("Закрыть и больше не напоминать"),
           onPressed: () async {
             await SharedPreferencesWrap.setHelpState(false);
+            helpMessageWasShowed = true;
             Navigator.pop(context);
           },
         ),
