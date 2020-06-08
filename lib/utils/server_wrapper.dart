@@ -12,6 +12,7 @@ import 'package:pharmacy_app/utils/utils.dart';
 import '../news_card_widget.dart';
 
 class ServerWrapper{
+  //static String serverUrl = "https://es.svodnik.pro:55443/es_test/ru_RU/hs";
   static String serverUrl = "https://es.svodnik.pro:55443/es/ru_RU/hs/";
 
   static Future<void> refreshAccessToken() async {
