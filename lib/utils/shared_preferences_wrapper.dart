@@ -1,7 +1,5 @@
 import 'package:flutter_udid/flutter_udid.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:pharmacy_app/utils/server_wrapper.dart';
-import 'package:pharmacy_app/login_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 

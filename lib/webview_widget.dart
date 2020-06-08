@@ -28,6 +28,9 @@ class _WebViewWidgetState extends State<WebViewWidget>{
     _onUrlChanged = flutterWebviewPlugin.onUrlChanged.listen((String url) {
       var uri = Uri.parse(url);
       var query = uri.queryParameters;
+      if (query["error"] != null){
+        catchError(query['error_description']);
+      }
       if (query["code"] != null){
         postEsiaAndClose(query['code'], query['state']);
       }
@@ -53,6 +56,18 @@ class _WebViewWidgetState extends State<WebViewWidget>{
         title: Text('Вход через "Госуслуги"'),
       ),
     );
+  }
+  
+  void catchError(String state) async {
+    await ServerLogin.postDataFromEsia("", state);
+    Navigator.of(context).pushNamedAndRemoveUntil("/HomeLogged", (route) => false);
+    showDialog(context: context,
+    child: AlertDialog(
+      content: Text("Во время авторизации произошла ошибка. Данные переданы в техническую поддержку. Попробуйте позже."),
+      actions: <Widget>[
+        FlatButton(child: Text("Закрыть"), onPressed: () => Navigator.of(context).pop(),)
+      ],
+    ));
   }
 
   void postEsiaAndClose(String code, String state) async {

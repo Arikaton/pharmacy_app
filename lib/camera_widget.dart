@@ -1,15 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path/path.dart';
-import 'package:http/http.dart';
-import 'package:async/async.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pharmacy_app/utils/route_generator.dart';
 import 'package:pharmacy_app/utils/server_wrapper.dart';
-import 'package:pharmacy_app/utils/shared_preferences_wrapper.dart';
-import 'package:image_picker/image_picker.dart';
 
 class CameraWidget extends StatefulWidget{
   _CameraWidgetState createState() => _CameraWidgetState();
