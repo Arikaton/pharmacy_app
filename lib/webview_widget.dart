@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
+import 'package:pharmacy_app/main.dart';
 import 'package:pharmacy_app/utils/server_wrapper.dart';
 import 'package:pharmacy_app/utils/shared_preferences_wrapper.dart';
 
@@ -65,7 +66,7 @@ class _WebViewWidgetState extends State<WebViewWidget>{
     child: AlertDialog(
       content: Text("Во время авторизации произошла ошибка. Данные переданы в техническую поддержку. Попробуйте позже."),
       actions: <Widget>[
-        FlatButton(child: Text("Закрыть"), onPressed: () => Navigator.of(context).pop(),)
+        FlatButton(child: Text("Закрыть"), onPressed: () => navigatorGlobalKey.currentState.pop(),)
       ],
     ));
   }

@@ -83,11 +83,12 @@ void main() async {
 
   runApp(MyMaterialApp());
 }
-
+final navigatorGlobalKey = GlobalKey<NavigatorState>();
 class MyMaterialApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorGlobalKey,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
