@@ -29,10 +29,20 @@ class _WebViewWidgetState extends State<WebViewWidget>{
     _onUrlChanged = flutterWebviewPlugin.onUrlChanged.listen((String url) {
       var uri = Uri.parse(url);
       var query = uri.queryParameters;
+      print('---------сканим ури редиректа');
+      print('1.---------url');
+      print(url);
+      print('2.---------uri');
+      print(uri);
+
+
+
       if (query["error"] != null){
+        print('error детектетд!!!!');
         catchError(query['error_description']);
       }
       if (query["code"] != null){
+        print('Code пришел!!!!');
         postEsiaAndClose(query['code'], query['state']);
       }
     });

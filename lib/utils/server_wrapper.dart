@@ -334,7 +334,8 @@ class ServerLogin{
 
   static Future<String> loginEsia() async {
     var info = await SharedPreferencesWrap.getDeviceInfo();
-    String url = "${ServerWrapper.serverUrl}/oauth/ESIA?url_to_redirect=https://xn--90arb8cyac.009.xn--p1ai/";
+   // String url = "${ServerWrapper.serverUrl}/oauth/ESIA?url_to_redirect=https://xn--90arb8cyac.009.xn--p1ai/";
+    String url = "${ServerWrapper.serverUrl}/oauth/ESIA?url_to_redirect= https://xn--90arb8cyac.009.xn--p1ai/gosuslugi/";
 
     Response response = await get(url, headers: info);
     if (response.statusCode == 200){
