@@ -341,11 +341,20 @@ class _LoginCheckNumberWidgetState extends State<LoginCheckNumberWidget>{
 class SplashScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Container(
+    //return Container(
+    return Scaffold(
+      body: Container(
       color: Colors.white,
-      margin: EdgeInsets.all(40),
-      child: Column(
-        children: <Widget>[
+
+      margin: EdgeInsets.all(1),
+        child: Column(
+            children: <Widget>[
+            Expanded(
+              child: Text('', style: TextStyle(
+                          fontSize: 10,
+                          ),
+                      ),
+          ),
           Expanded(
             child: Text("009 Электронные рецепты", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
           ),
@@ -360,7 +369,9 @@ class SplashScreen extends StatelessWidget{
           )
         ],
       ),
+    ),
     );
+
   }
 
 }
