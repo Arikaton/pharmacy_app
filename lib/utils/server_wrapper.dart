@@ -358,6 +358,9 @@ class ServerLogin{
     }
 
     Response response = await post(url, headers: info);
+    print('статус последнего этапа гос услуг');
+    print(response.statusCode.toString());
+
     if (response.statusCode == 200){
       return true;
     } else {
