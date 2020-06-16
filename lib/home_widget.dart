@@ -362,7 +362,7 @@ class _HomePageWidgetState extends State<HomePageWidget>{
           date: data['Date'].toString().replaceAll("T", ' '),
           url: content[i]['ext_link'].toString(),
           read: content[i]['NotRead'] as bool,
-        )
+          )
         );
       }
       else if (content[i]["TypeData"] == "Recipe"){
@@ -415,7 +415,7 @@ class _HomePageWidgetState extends State<HomePageWidget>{
     var chipName = _ChipWithBadgeState.activeWidgetName;
     if (chipName == "Все") {
       for (int i = 0; i < mainContent.length; i++){
-        if (mainContent[i].toStringShort() != "MessageCard"){
+        if (mainContent[i].runtimeType.toString() != "MessageCard"){
           filteredContent.add(mainContent[i]);
         }
       }
@@ -424,7 +424,7 @@ class _HomePageWidgetState extends State<HomePageWidget>{
       return;
     }
     for (int i = 0; i < mainContent.length; i++){
-      switch(mainContent[i].toStringShort()){
+      switch(mainContent[i].runtimeType.toString()){
         case "NewsCard":
           if (chipName == "Новости"){
             filteredContent.add(mainContent[i]);
