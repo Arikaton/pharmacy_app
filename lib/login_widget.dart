@@ -57,7 +57,7 @@ class _LoginWidgetState extends State<LoginWidget>{
                       }
                     },
                     inputFormatters: [phoneMask],
-                    keyboardType: TextInputType.numberWithOptions(),
+                    //keyboardType: TextInputType.numberWithOptions(),
                     textAlign: TextAlign.start,
                     onSaved: (value) => phoneNumber = value,
                     style: TextStyle(fontSize: 20, letterSpacing: 1),
