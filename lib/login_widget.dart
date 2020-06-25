@@ -38,7 +38,11 @@ class _LoginWidgetState extends State<LoginWidget>{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text('009 Электронные рецепты', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              Text('Электронные рецепты на лекарства',textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20,
+                                   fontWeight: FontWeight.bold
+                                    ),
+                  ),
               SvgPicture.asset('assets/logo.svg', width: 180),
               Text('Введите номер телефона', style: TextStyle(fontSize: 16),),
               Container(
